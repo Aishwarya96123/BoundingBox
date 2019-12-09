@@ -3,9 +3,7 @@ import pytesseract
 import numpy as np 
 from PIL import Image 
 import sys
-import pytesseract
 from pytesseract import Output
-import cv2
 
 img = cv2.imread('C:/Users/4122/Desktop/result.png')
 
@@ -15,13 +13,10 @@ for i in range(n_boxes):
     (x, y, w, h) = (d['left'][i], d['top'][i], d['width'][i], d['height'][i])
     cv2.rectangle(img, (x, y), (x + w, y + h), (0, 255, 0), 2)
     
-#cv2.imwrite("‪C:/Users/4122/Desktop/bound1.png",img)
+
 cv2.imshow('img', img)
 cv2.waitKey(0)
 
-#import pytesseract
-#from pytesseract import Output
-#import cv2
 pytesseract.pytesseract.tesseract_cmd = r'C:\Users\4122\Desktop\Tesseract-OCR\tesseract.exe'
 
 img = cv2.imread(r'C:\Users\4122\Desktop\result.png')
@@ -85,7 +80,7 @@ for item in matching_string:
     (x, y, w, h) = (left, top, width, height)
     cv2.rectangle(img, (x-5, y-5), (x + w+15, y + h+15), (0, 255, 0), 2)
 
-cv2.imwrite('‪C:/Users/4122/Desktop/final.png',img)
+cv2.imwrite('‪image.png',img)
 cv2.namedWindow('img',cv2.WINDOW_NORMAL)
 cv2.imshow('img', img)
 cv2.waitKey(0)
